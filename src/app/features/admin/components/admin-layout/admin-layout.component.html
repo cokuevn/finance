@@ -1,0 +1,24 @@
+<mat-sidenav-container class="example-container">
+  <!-- Боковое меню (sidenav) -->
+  <mat-sidenav mode="side" opened class="example-sidenav">
+    <h2>Admin Menu</h2>
+    <button mat-button routerLink="">Dashboard</button>
+    <button mat-button routerLink="client/123">Клиент 123</button>
+    <!-- Добавляйте нужные ссылки -->
+  </mat-sidenav>
+
+  <!-- Основное содержимое -->
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Admin Panel</span>
+      <!-- Кнопка выхода или другие элементы -->
+      <span class="spacer"></span>
+      <button mat-button>Выйти</button>
+    </mat-toolbar>
+
+    <div class="content">
+      <!-- Здесь подгружаются дочерние маршруты -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

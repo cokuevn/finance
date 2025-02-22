@@ -1,0 +1,39 @@
+<div class="form-container">
+  <mat-card class="mat-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title class="mat-card-title">Авторизация</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" required />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+            >Email обязателен</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Пароль</mat-label>
+          <input matInput type="password" formControlName="password" required />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+            >Пароль обязателен</mat-error
+          >
+          <mat-error *ngIf="loginForm.get('password')?.hasError('minLenth')">
+            Пароль должен содержать минимум 6 символов.
+          </mat-error>
+        </mat-form-field>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="loginForm.invalid"
+          >
+            Вход
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
